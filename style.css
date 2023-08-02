@@ -1,0 +1,142 @@
+/* color blend BPJS
+green [05A04A, 089653, 078C5D, 088266, 0B796E, 0E6F74, 116679, 145D7E,185482,1C4A85] blue */
+
+div.block-container
+{
+    padding-top:2rem;
+    
+}
+
+[data-testid=column] [data-testid=stVerticalBlock]
+{
+    gap: 0rem;
+}
+
+[data-testid=stHorizontalBlock] [data-testid=column]
+{
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+[data-testid=stHorizontalBlock] [data-testid=column] 
+[data-testid=stVerticalBlock] .element-container:nth-child(1) p
+{
+    margin-bottom: 0.3rem;
+    /* font-size: 15px; */
+}
+
+[data-testid=stHorizontalBlock] [data-testid=column] 
+[data-testid=stVerticalBlock] .element-container:nth-child(2) p
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* transform: translate(0, -10px); */
+}
+
+iframe
+{
+    width: 100%;
+    height: 230px;
+}
+
+
+/* #1D4985 blue*/
+
+
+h6 
+{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.block-container [data-testid=stVerticalBlock] 
+[data-testid=stHorizontalBlock] [data-testid=column]:has(.green-box)
+{
+    background-color: #04A049;
+}
+
+.stRadio [role="radiogroup"]
+{
+    justify-content: center;
+}
+
+.stRadio label[aria-hidden="true"]:first-child {
+   display: none;
+}
+
+.stRadio label,
+.stRadio input {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  /* position: absolute; */
+  /* display: flex; */
+  width: 140px;
+  height: 40px;
+  padding-right: 50px;
+  border: 1px solid #CCC;
+  padding: 0;
+  cursor: pointer;
+}
+
+.stRadio [role="radiogroup"] [data-baseweb="radio"] div:first-child {
+  display: none;
+}
+
+.stRadio [role="radiogroup"] [data-baseweb="radio"]:hover {
+    border: 1px solid #04A049;
+
+}
+
+.stRadio [role="radiogroup"] [data-baseweb="radio"]:hover div:last-child
+{
+  color: #04A049;
+}
+.stRadio [role="radiogroup"] [data-baseweb="radio"] div:last-child
+{
+  left: -3px;
+}
+/* .stRadio [role="radiogroup"] [data-baseweb="radio"] > [tabindex="0"] {
+  background: yellow;
+} */
+
+.stRadio [role="radiogroup"] [data-baseweb="radio"]:has([tabindex="0"])
+{
+  border: 1px solid #04A049;
+}
+
+.stRadio [role="radiogroup"] [data-baseweb="radio"]:has([tabindex="0"]) div:last-child
+{
+  color: #04A049;
+}
+
+/* #a25 {
+  top: 20px;
+  left: 20px;
+}
+
+#a50 {
+  top: 20px;
+  left: 140px;
+}
+
+#a75 {
+  top: 20px;
+  left: 260px;
+}
+
+#a100 {
+  top: 20px;
+  left: 380px;
+}
+
+#other {
+  top: 20px;
+  left: 500px;
+}
+
+#otherAmount {
+  top: 20px;
+  left: 620px;
+} */
