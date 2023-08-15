@@ -54,38 +54,42 @@ rad = st.radio(
 st.session_state['kategori'] = rad
 
 # Read Data
-loc = 'E:/LOMBA/healthkethon/Data Sampel Final 2022/'
-tb2021_kepesertaan = pd.read_stata(loc+'Kontekstual TB/TB2021_kepesertaan.dta')
-dm2021_kepesertaan = pd.read_stata(loc+'Kontekstual DM/DM2021_kepesertaan.dta')
-reguler_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
-kepesertaan_all = pd.concat(
-    [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
+loc = 'data/'
+# tb2021_kepesertaan = pd.read_stata(loc+'Kontekstual TB/TB2021_kepesertaan.dta')
+# dm2021_kepesertaan = pd.read_stata(loc+'Kontekstual DM/DM2021_kepesertaan.dta')
+# reguler_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
+# kepesertaan_all = pd.concat(
+#     [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
 # End of read data
 if st.session_state['kategori'] == "All":
-    tb2021_kepesertaan = pd.read_stata(
-        loc+'Kontekstual TB/TB2021_kepesertaan.dta')
-    dm2021_kepesertaan = pd.read_stata(
-        loc+'Kontekstual DM/DM2021_kepesertaan.dta')
-    reguler_kepesertaan = pd.read_stata(
-        loc+'Reguler/2015202101_kepesertaan.dta')
-    data_kepesertaan = pd.concat(
-        [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
+    # tb2021_kepesertaan = pd.read_stata(
+    #     loc+'Kontekstual TB/TB2021_kepesertaan.dta')
+    # dm2021_kepesertaan = pd.read_stata(
+    #     loc+'Kontekstual DM/DM2021_kepesertaan.dta')
+    # reguler_kepesertaan = pd.read_stata(
+    #     loc+'Reguler/2015202101_kepesertaan.dta')
+    # data_kepesertaan = pd.concat(
+    #     [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
+    data_loc = 'mini-data/all/'
 elif st.session_state['kategori'] == "Tuberkulosis":
-    data_kepesertaan = pd.read_stata(
-        loc+'Kontekstual TB/TB2021_kepesertaan.dta')
+    # data_kepesertaan = pd.read_stata(
+    #     loc+'Kontekstual TB/TB2021_kepesertaan.dta')
+    data_loc = 'mini-data/tb/'
 elif st.session_state['kategori'] == "Diabetes Mellitus":
-    data_kepesertaan = pd.read_stata(
-        loc+'Kontekstual DM/DM2021_kepesertaan.dta')
+    # data_kepesertaan = pd.read_stata(
+    #     loc+'Kontekstual DM/DM2021_kepesertaan.dta')
+    data_loc = 'mini-data/dm/'
 elif st.session_state['kategori'] == "Reguler":
-    data_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
+    # data_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
+    data_loc = 'mini-data/reguler/'
+    # st.markdown(rad)
 
-# st.markdown(rad)
-
-# Fisrt Row
+    # Fisrt Row
 col1, col2, col3, col4 = st.columns(4)
 
 col1.markdown("Jumlah Peserta BPJS 2021")
-jumlah_peserta = len(data_kepesertaan)
+# jumlah_peserta = len(data_kepesertaan)
+jumlah_peserta = 12344
 col1.markdown('{:,}'.format(jumlah_peserta))
 col1.markdown("<div class='green-box'></div>", unsafe_allow_html=True)
 
@@ -106,10 +110,8 @@ col1, col2 = st.columns([2, 1])
 with col1:
 
     st.markdown("###### Sebaran Peserta BPJS")
-    df_prov = data_kepesertaan.groupby('PSTV09').agg(
-        'count').reset_index().iloc[:, 0:2]
-    df_prov.columns = ['PROVINSI', 'PESERTA']
-
+    df_prov = pd.read_csv(loc+data_loc+"kepesertaan-peta.csv")
+    # st.table(df_prov)
     # with open(loc+'shp/SHP Indonesia/geojson_prov.json', 'r') as openfile:
     #     geo_json_data = json.load(openfile)
     prov_shp = gpd.read_file(loc + "shp/SHP Indonesia/prov small/prov1.shp")
@@ -152,9 +154,10 @@ with col1:
 
 with col2:
     col2.markdown("###### Persentase Peserta BPJS menurut Jenis Kelamin")
-    jk = data_kepesertaan.groupby('PSTV05')['PSTV05'].count()
-    jk = pd.DataFrame(jk)
-    jk = jk.rename_axis("jk").reset_index()
+    # jk = data_kepesertaan.groupby('PSTV05')['PSTV05'].count()
+    # jk = pd.DataFrame(jk)
+    # jk = jk.rename_axis("jk").reset_index()
+    jk = pd.read_csv(loc+data_loc+"kepesertaan-jk.csv")
     fig = go.Figure(
         data=[go.Pie(labels=jk['jk'], values=jk['PSTV05'], hole=.6)])
     fig.update_traces(marker=dict(colors=["#05A04A", "#0B796E"]))
