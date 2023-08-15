@@ -1,12 +1,2 @@
-streamlit
-time
-datetime
-matplotlib
 numpy
-pandas
-plotly.express
-json
-requests
-geopandas
-datetime
-folium
+matplotlib
