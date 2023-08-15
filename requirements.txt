@@ -1,10 +1,10 @@
 streamlit
-
+time
 datetime
 matplotlib
 numpy
 pandas
-plotly.express
+plotly-express
 json
 requests
 geopandas
