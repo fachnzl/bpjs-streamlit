@@ -13,4 +13,4 @@ json
 requests
 geopandas
 datetime
-import folium
+folium
