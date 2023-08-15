@@ -6,9 +6,7 @@ numpy
 pandas
 missingno
 plotly.express
-plotly.graph_objects
-plotly.subplots
-matplotlib.pyplot
+matplotlib
 json
 requests
 geopandas
