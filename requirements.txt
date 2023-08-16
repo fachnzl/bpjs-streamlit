@@ -4,7 +4,6 @@ datetime
 matplotlib
 numpy
 pandas
-plotly_express==0.4.0
 json
 requests
 geopandas
