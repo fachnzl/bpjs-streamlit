@@ -53,7 +53,7 @@ col1.markdown("Jumlah Peserta BPJS 2021")
 # jumlah_peserta = len(data_kepesertaan)
 jumlah_peserta = 12344
 col1.markdown('{:,}'.format(jumlah_peserta))
-col1.markdown("<div class='green-box'></div>", unsafe_allow_html=True)
+# col1.markdown("<div class='green-box'></div>", unsafe_allow_html=True)
 
 col2.markdown("Kunjungan Kapitasi")
 col2.markdown('{:,}'.format(32432423))
