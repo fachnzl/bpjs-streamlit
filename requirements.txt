@@ -3,7 +3,7 @@ python-time
 datetime
 matplotlib
 numpy
-pandas==2.0.3
+pandas==2.0.1
 json
 requests
 geopandas

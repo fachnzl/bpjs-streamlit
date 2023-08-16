@@ -1,6 +1,8 @@
 /* color blend BPJS
 green [05A04A, 089653, 078C5D, 088266, 0B796E, 0E6F74, 116679, 145D7E,185482,1C4A85] blue */
-
+:root {
+  --primary-color:#3FA9D3
+}
 div.block-container
 {
     padding-top:2rem;
@@ -12,12 +14,24 @@ div.block-container
     gap: 0rem;
 }
 
+img 
+{
+  position: relative;
+  bottom: -20px;
+}
+
+[data-testid="stHorizontalBlock"] {
+  align-items: center;
+}
+
+
 [data-testid=stHorizontalBlock] [data-testid=column]
 {
-    background-color: #333333;
+    background-color: #fff;
     padding: 10px;
     border-radius: 5px;
 }
+
 
 [data-testid=stHorizontalBlock] [data-testid=column] 
 [data-testid=stVerticalBlock] .element-container:nth-child(1) p
@@ -53,10 +67,39 @@ h6
 .block-container [data-testid=stVerticalBlock] 
 [data-testid=stHorizontalBlock] [data-testid=column]:has(.green-box)
 {
-    background-color: #04A049;
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: left;
 }
 
-.stRadio [role="radiogroup"]
+.big-text
+{
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+.small-text
+{
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 5%;
+}
+
+.block-container [data-testid=stVerticalBlock] 
+[data-testid=stHorizontalBlock] [data-testid=column]:has(.judul-img-trans)
+{
+    background-color: rgba(0,0,0,0);
+  }
+  
+  .block-container [data-testid=stVerticalBlock] 
+  [data-testid=stHorizontalBlock] [data-testid=column]:has(.judul-img)
+  {
+      background-color: var(--primary-color);
+      color: #fff;
+      text-align: left;
+  }
+  .stRadio [role="radiogroup"]
 {
     justify-content: center;
 }
@@ -85,13 +128,13 @@ h6
 }
 
 .stRadio [role="radiogroup"] [data-baseweb="radio"]:hover {
-    border: 1px solid #04A049;
+    border: 1px solid var(--primary-color);
 
 }
 
 .stRadio [role="radiogroup"] [data-baseweb="radio"]:hover div:last-child
 {
-  color: #04A049;
+  color: var(--primary-color);
 }
 .stRadio [role="radiogroup"] [data-baseweb="radio"] div:last-child
 {
@@ -103,12 +146,12 @@ h6
 
 .stRadio [role="radiogroup"] [data-baseweb="radio"]:has([tabindex="0"])
 {
-  border: 1px solid #04A049;
+  border: 1px solid var(--primary-color);
 }
 
 .stRadio [role="radiogroup"] [data-baseweb="radio"]:has([tabindex="0"]) div:last-child
 {
-  color: #04A049;
+  color: var(--primary-color);
 }
 
 /* #a25 {

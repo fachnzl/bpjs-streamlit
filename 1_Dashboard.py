@@ -24,66 +24,29 @@ with open("style.css") as source_des:
     st.markdown(f"<style>{source_des.read()}</style>", unsafe_allow_html=True)
 
 
-# opt = st.sidebar.radio("Select Any Graph", options=("Line", "Bar", "H-Bar"))
-
-# st.markdown("## Main Dashboard")
-
-if 'kategori' not in st.session_state:
-    st.session_state['kategori'] = 'All'
-    kat = 0
-else:
-    if st.session_state['kategori'] == "All":
-        kat = 0
-    elif st.session_state['kategori'] == "Tuberkulosis":
-        kat = 1
-    elif st.session_state['kategori'] == "Diabetes Mellitus":
-        kat = 2
-    elif st.session_state['kategori'] == "Reguler":
-        kat = 3
-
-rad = st.radio(
-    "kategori",
-    ["All", "Tuberkulosis", "Diabetes Mellitus", "Reguler"],
-    index=kat,
-    key="visibility",
-    # label_visibility=st.session_state.visibility,
-        # disabled=st.session_state.disabled,
-        horizontal=True,
-)
-st.session_state['kategori'] = rad
-
-# Read Data
 loc = 'data/'
-# tb2021_kepesertaan = pd.read_stata(loc+'Kontekstual TB/TB2021_kepesertaan.dta')
-# dm2021_kepesertaan = pd.read_stata(loc+'Kontekstual DM/DM2021_kepesertaan.dta')
-# reguler_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
-# kepesertaan_all = pd.concat(
-#     [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
-# End of read data
-if st.session_state['kategori'] == "All":
-    # tb2021_kepesertaan = pd.read_stata(
-    #     loc+'Kontekstual TB/TB2021_kepesertaan.dta')
-    # dm2021_kepesertaan = pd.read_stata(
-    #     loc+'Kontekstual DM/DM2021_kepesertaan.dta')
-    # reguler_kepesertaan = pd.read_stata(
-    #     loc+'Reguler/2015202101_kepesertaan.dta')
-    # data_kepesertaan = pd.concat(
-    #     [tb2021_kepesertaan, dm2021_kepesertaan, reguler_kepesertaan])
-    data_loc = 'mini-data/all/'
-elif st.session_state['kategori'] == "Tuberkulosis":
-    # data_kepesertaan = pd.read_stata(
-    #     loc+'Kontekstual TB/TB2021_kepesertaan.dta')
-    data_loc = 'mini-data/tb/'
-elif st.session_state['kategori'] == "Diabetes Mellitus":
-    # data_kepesertaan = pd.read_stata(
-    #     loc+'Kontekstual DM/DM2021_kepesertaan.dta')
-    data_loc = 'mini-data/dm/'
-elif st.session_state['kategori'] == "Reguler":
-    # data_kepesertaan = pd.read_stata(loc+'Reguler/2015202101_kepesertaan.dta')
-    data_loc = 'mini-data/reguler/'
-    # st.markdown(rad)
 
-    # Fisrt Row
+data_loc = 'mini-data/all/'
+
+# Fisrt Row
+
+container_beranda = st.columns(1)
+container_beranda[0].markdown("<div class='judul-img'></div>",
+                              unsafe_allow_html=True)
+col1, col2 = container_beranda[0].columns([6, 3])
+col1.markdown('<span class="big-text">Lorem ipsum dolor sit amet,</span>',
+              unsafe_allow_html=True)
+col1.markdown('<span class="big-text">consectetur adipiscing elit.</span>',
+              unsafe_allow_html=True)
+col1.markdown('<span class="small-text">Created by Impromptu</span>',
+              unsafe_allow_html=True)
+col1.markdown("<div class='judul-img-trans'></div>",
+              unsafe_allow_html=True)
+col2.image('data/orang.png')
+col2.markdown("<div class='judul-img-trans'></div>",
+              unsafe_allow_html=True)
+
+
 col1, col2, col3, col4 = st.columns(4)
 
 col1.markdown("Jumlah Peserta BPJS 2021")
